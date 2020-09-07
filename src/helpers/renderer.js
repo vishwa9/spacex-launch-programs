@@ -16,7 +16,9 @@ export default (req, store) => {
     );
     return `
       <html>
-        <head></head>
+        <head>
+        <link rel="stylesheet" href="style.css">
+        </head>
         <body>
           <div id="root">${content}</div>
           <script>

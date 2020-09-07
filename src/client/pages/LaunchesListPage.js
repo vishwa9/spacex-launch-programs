@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchLaunches } from '../actions';
+import './LaunchesListPages.css';
 
 class UserList extends Component {
     componentDidMount() {
@@ -17,7 +18,7 @@ class UserList extends Component {
         return (
             <div>
                 Here's a list of launches:
-                <ul>{this.renderUsers()}</ul>
+                <ul className="test">{this.renderUsers()}</ul>
             </div>
         );
     }
