@@ -10,10 +10,10 @@
     "start": "node build/bundle.js",
     "build": "npm run dev:build-server-no-watch && npm run dev:build-client-no-watch",
     "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
-    "dev:build-server": "webpack --mode production --config webpack.server.js --watch",
-    "dev:build-client": "webpack --mode production --config webpack.client.js --watch",
-    "dev:build-server-no-watch": "webpack --mode production --config webpack.server.js",
-    "dev:build-client-no-watch": "webpack --mode production --config webpack.client.js"
+    "dev:build-server": "webpack --config webpack.server.js --watch",
+    "dev:build-client": "webpack --config webpack.client.js --watch",
+    "dev:build-server-no-watch": "webpack --config webpack.server.js",
+    "dev:build-client-no-watch": "webpack --config webpack.client.js"
   },
   "author": "",
   "license": "ISC",
