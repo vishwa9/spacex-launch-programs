@@ -4,6 +4,7 @@
   "description": "Server side rendering project",
   "main": "index.js",
   "scripts": {
+    "heroku-postbuild": "webpack --config webpack.server.js && webpack --config webpack.client.js",
     "dev": "npm-run-all --parallel dev:*",
     "build": "npm run dev:build-server-no-watch && npm run dev:build-client-no-watch",
     "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",

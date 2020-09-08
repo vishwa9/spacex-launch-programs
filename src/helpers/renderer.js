@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { renderRoutes } from 'react-router-config';
 import serialize from 'serialize-javascript';
 import Routes from '../client/Routes';
+import webConfig from './../../webConfig';
 
 export default (req, store) => {
     const content = renderToString(
@@ -17,14 +18,14 @@ export default (req, store) => {
     return `
       <html>
         <head>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="${webConfig.siteURL}/style.css">
         </head>
         <body>
           <div id="root">${content}</div>
           <script>
             window.INITIAL_STATE = ${serialize(store.getState())}
           </script>
-          <script src="bundle.js"></script>
+          <script src="${webConfig.siteURL}/client_bundle.js"></script>
         </body>
       </html>
     `;
