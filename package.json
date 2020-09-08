@@ -6,12 +6,11 @@
   "scripts": {
     "heroku-postbuild": "webpack --config webpack.server.js && webpack --config webpack.client.js",
     "dev": "npm-run-all --parallel dev:*",
-    "serve": "node build/bundle.js",
     "start": "node build/bundle.js",
     "build": "npm run dev:build-server-no-watch && npm run dev:build-client-no-watch",
-    "dev:server": "nodemon build --exec \"node build/bundle.js\"",
-    "dev:build-server": "webpack --config webpack.server.js",
-    "dev:build-client": "webpack --config webpack.client.js",
+    "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
+    "dev:build-server": "webpack --config webpack.server.js --watch",
+    "dev:build-client": "webpack --config webpack.client.js --watch",
     "dev:build-server-no-watch": "webpack --config webpack.server.js",
     "dev:build-client-no-watch": "webpack --config webpack.client.js"
   },
