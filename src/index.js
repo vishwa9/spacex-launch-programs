@@ -7,7 +7,7 @@ import Routes from './client/Routes';
 
 const app = express();
 const port = process.env.PORT || 3000;
-app.use(express.static('build'));
+app.use(express.static('public'));
 app.get('*', (req, res) => {
   const store = createStore(req);
 

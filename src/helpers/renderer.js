@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { renderRoutes } from 'react-router-config';
 import serialize from 'serialize-javascript';
 import Routes from '../client/Routes';
-import webConfig from './../../webConfig';
+import webConfig from './../../webConfig.json';
 
 export default (req, store) => {
     const content = renderToString(
