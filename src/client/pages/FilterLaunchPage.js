@@ -55,7 +55,6 @@ class FilterLaunch extends Component{
         } else {
             filter[type] = value;
         }
-        console.log('filter', filter);
         this.props.createFilters(filter);
     }
     fetchContainerHeading() {

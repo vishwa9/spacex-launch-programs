@@ -5,7 +5,6 @@ export const FILTER_LAUNCHES = 'filter_launches';
 
 export const fetchLaunches = (filter) => async dispatch => {
     let baseUrl = 'https://api.spaceXdata.com/v3/launches?limit=100';
-    console.log('hello', filter);
     if(filter && filter.year) {
         baseUrl = baseUrl + '&launch_year='+ filter.year;
     }

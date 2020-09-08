@@ -28,7 +28,6 @@ class UserList extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log('vishwa', state);
     return { launches: state.launches.launches };        
 }
 

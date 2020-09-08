@@ -71,6 +71,7 @@ body{
   margin: 30px;
   border-radius: 20px;
   padding: 60px 0;
+  max-height: 400px;
 }
 .display-image {
   background: #000;
