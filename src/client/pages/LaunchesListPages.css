@@ -71,7 +71,7 @@ body{
   margin: 30px;
   border-radius: 20px;
   padding: 60px 0;
-  max-height: 400px;
+  max-height: fit-content;
 }
 .display-image {
   background: #000;
@@ -155,6 +155,9 @@ body{
 .display-mission-id {
   font-size: 16px;
   margin-left: 0px;
+}
+.display-detail-main-container{
+  max-height: 400px;
 }
 
 }
