@@ -3,9 +3,10 @@ import { renderRoutes } from 'react-router-config';
 import Header from './components/Header';
 
 const App = ({ route }) => {
-    return (<div>
+    return (<div style={{'background': '#DCDCDC'}}>
         <Header />
         {renderRoutes(route.routes)}
+        <div className="developer">Developed by: vishwa</div>
     </div>);
 };
 
