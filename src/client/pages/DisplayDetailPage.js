@@ -2,7 +2,7 @@ import React from 'react';
 
 const DisplayDetail = (props) => {
     return (
-        <div className="display-detail-main-container">
+        <div className={`display-detail-main-container ${ props.ele > 3 ? 'card-width' : ''}`}>
             <div className="display-image">
                 <img tabIndex="0" src={props.data.links.mission_patch} alt="rocket launch logo" className="display-image-style" />
             </div>

@@ -13,7 +13,7 @@ class UserList extends Component {
     renderUsers() {
         return this.props.launches && this.props.launches.map(launch => {
             
-            return (<DisplayDetail key={launch.flight_number} data={launch}></DisplayDetail>);
+            return (<DisplayDetail ele={this.props.launches.length} key={launch.flight_number} data={launch}></DisplayDetail>);
         });
     }
 
