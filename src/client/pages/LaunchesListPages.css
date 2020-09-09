@@ -42,7 +42,7 @@ body{
     display: flex;
     flex-grow: 4;
     align-items: center;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
     outline-style: none;
 }
 .active-btn-launch-true,
@@ -75,7 +75,7 @@ body{
   margin: 30px;
   border-radius: 20px;
   padding: 60px 30px;
-  max-height: fit-content;
+  height: fit-content;
 }
 .display-image {
   background:#DCDCDC
@@ -122,22 +122,35 @@ body{
   .header {
     font-size: 40px;
   }
+  .main-container {
+    flex-direction: row;
+  }
   .filter-heading {
     font-size: 60px;
   }
   .filter-subheading {
     font-size: 40px;
   }
+  .filter-main-container {
+    margin: 20px;
+    width: 220px;
+  }
   .display-main-container {
     display: flex;
     flex-wrap: wrap;
   }
   .display-image-style {
-    width: 250px;
-    height: 300px;
+    width: 150px;
+    height: 200px;
+  }
+  .display-detail-main-container {
+    margin: 30px 13px;
+    padding: 30px 20px;
   }
   .button {
-    font-size: 100px;
+    font-size: 20px;
+    width: 30px;
+    margin-bottom: 20px;
   }
   .mission-name {
     font-size: 20px;
@@ -151,6 +164,9 @@ body{
   .display-mission-id {
     font-size: 20px;
   }
+  .display-mission-content {
+    margin-left: 20px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -159,6 +175,7 @@ body{
   }
   .filter-heading {
     font-size: 40px;
+    margin-bottom: 15px;
   }
   .filter-subheading {
     font-size: 60px;
@@ -173,18 +190,23 @@ body{
   .filter-main-container {
     margin-right: 0px;
     height: fit-content;
+    min-width: 235px;
+    max-width: 235px;
   }
   .display-image-style {
     width: 150px;
     height:200px;
   }
   .filter-subheading{
-    font-size: 40px;
+    font-size: 24px;
+    margin-bottom: 15px;
+
   }
   .button {
     font-size: 16px;
     height: 16px;
     width: 16px;
+    margin-bottom: 20px;
   }
   .mission-name {
     max-width: 150px;
