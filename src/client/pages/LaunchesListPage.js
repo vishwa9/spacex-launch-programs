@@ -20,7 +20,7 @@ class UserList extends Component {
     render() {
         return (
             <div className="main-container">
-                <FilterLaunch></FilterLaunch>
+                <FilterLaunch history={this.props.history}></FilterLaunch>
                 <div className="display-main-container">{this.renderUsers()}</div>
             </div>
         );

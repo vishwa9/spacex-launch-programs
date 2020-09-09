@@ -32,7 +32,7 @@ body{
 }
 
 .button {
-  background: #47cf73;
+    background: #DFFFDF /* #*/;
     color: #080808;
     padding: 0.5rem 2rem 0.4rem;
     text-decoration: none;
@@ -46,6 +46,14 @@ body{
     flex-grow: 4;
     align-items: center;
     margin-bottom: 60px;
+    outline-style: none;
+}
+.active-btn-launch-true,
+.active-btn-launch-false,
+.active-btn-land-true,
+.active-btn-land-false,
+.active-btn-year {
+  background: #47cf73;
 }
 
 .button-group {

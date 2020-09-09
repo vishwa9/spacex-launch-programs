@@ -24,7 +24,7 @@ const DisplayDetail = (props) => {
             </div>
             <div className="display-mission-content" tabIndex="0" aria-label="Successfull Landing:">
                 <span className="display-mission-id-list">Successfull Landing:</span>
-                <span className="display-mission-id">{props.data.landing_success != null ? props.data.landing_success + '' : 'no data'}</span>
+                <span className="display-mission-id">{props.data.rocket.first_stage.cores[0].land_success != null ? props.data.rocket.first_stage.cores[0].land_success + '' : 'false'}</span>
             </div>
         </div>
 

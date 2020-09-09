@@ -4,6 +4,38 @@ import { fetchLaunches, filterLaunches } from '../actions';
 import Button from '../components/Button';
 
 class FilterLaunch extends Component{
+    constructor(props){
+        super(props);
+        this.state = props;
+    }
+
+    componentWillMount() {
+        this.unlisten = this.props.history.listen((location, action) => {
+            const filter = location.search.split('&').reduce((o,e,i) => {
+                if(i >0) {
+                    return Object.assign(o, Object.fromEntries([e.split('=')]));
+                } else {
+                    let str = e.replace(/\?/, "");
+                    return Object.assign(o, Object.fromEntries([str.split('=')]));
+                }
+            },{});
+            this.props.createFilters(filter);
+        });
+    }
+
+    componentDidMount() {
+        
+        const filter = this.props.history.location.search.split('&').reduce((o,e,i) => {
+            if(i >0) {
+                return Object.assign(o, Object.fromEntries([e.split('=')]));
+            } else {
+                let str = e.replace(/\?/, "");
+                return Object.assign(o, Object.fromEntries([str.split('=')]));
+            }
+        },{});
+        this.props.createFilters(filter);
+    }
+
 
     render() {
         return (<div className="filter-main-container">
@@ -16,8 +48,8 @@ class FilterLaunch extends Component{
             <div className="button-group">
             {this.fetchListOfYear().map(year => {
                 return (
-                    <div className={year === '2021' ? 'visually-hidden': null } tabIndex="0" aria-label={year} key={year} onClick={() => this.test('year', year)}>
-                        <div className="button">{year}</div>
+                    <div className={year === '2021' ? 'visually-hidden': null } key={year} onClick={() => this.test('year', year)}>
+                        <div tabIndex="0" aria-label={year} className={`button active-btn-${this.props.filters && this.props.filters['year'] === year ? 'year' : ''}`}>{year}</div>
                     </div>
                 );
             })}
@@ -26,10 +58,10 @@ class FilterLaunch extends Component{
                 Successful Launch
             </div>
             <div className="button-group">
-                {this.fetchBooleans().map(bool => {
+                {(!this.state.filters || this.state.filters) && this.fetchBooleans().map(bool => {
                     return (
-                        <div tabIndex="0" aria-label= {bool} key={bool} onClick={() => this.test('launch', bool)}>
-                        <div className="button">{bool}</div>
+                        <div key={bool} onClick={() => this.test('launch', bool)}>
+                        <div tabIndex="0" aria-label= {bool} className={`button active-btn-launch-${this.props.filters && this.props.filters['launch'] === bool ? bool : ''}`}>{bool}</div>
                     </div>
                     );
                 })}
@@ -38,10 +70,10 @@ class FilterLaunch extends Component{
                 Successful Landing
             </div>
             <div className="button-group">
-                {this.fetchBooleans().map(bool => {
+                {(!this.state.filters || this.state.filters) && this.fetchBooleans().map(bool => {
                     return (
-                        <div tabIndex="0" aria-label= {bool} key={bool} onClick={() => this.test('landing', bool)}>
-                        <div className="button">{bool}</div>
+                        <div key={bool} onClick={() => this.test('landing', bool)}>
+                        <div tabIndex="0" aria-label= {bool} className={`button active-btn-land-${this.props.filters && this.props.filters['landing'] === bool ? bool : ''}`}>{bool}</div>
                     </div>
                     );
                 })}
@@ -49,13 +81,22 @@ class FilterLaunch extends Component{
         </div>);
     }
     test(type, value) {
-        let filter = this.props.filters ? this.props.filters : {};
+        let filter = this.props.filters ? JSON.parse(JSON.stringify(this.props.filters)) : {};
         if (this.props.filters && this.props.filters[type]) {
             filter[type] === value ? delete filter[type] : filter[type] = value;
         } else {
             filter[type] = value;
         }
         this.props.createFilters(filter);
+        this.setState({filters: filter});
+        let baseUrl = 'launches?';
+        if(Object.entries(filter).length === 0) {
+            this.state.history.push('/');
+        } else {
+            Object.entries(filter).
+            map((e,i) => baseUrl = baseUrl+ (i > 0 ? '&':'') + e[0]+'=' + e[1]);
+            this.state.history.push(baseUrl);
+        }
     }
     fetchContainerHeading() {
         return 'Filters';

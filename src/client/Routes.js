@@ -7,7 +7,7 @@ export default [
         ...App,
         routes: [
             {
-                path: '/',
+                path: '/*',
                 ...LaunchesListPage,
                 exact: true
             },
